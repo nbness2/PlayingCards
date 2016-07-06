@@ -31,13 +31,12 @@ class Card:
 
 class Deck:
 
-    def __init__(self, deckname, decksize=1, isdeck=True):
+    def __init__(self, decksize=1, isdeck=True):
         self.deck = []
         if isdeck is True:
             for x in range(decksize):
                 self.deck = [Card(y, x) for x in suits for y in ranks]
 
-        self.deckname = str(deckname)
 
     def __invert__(self):
         shuffle(self.deck)
