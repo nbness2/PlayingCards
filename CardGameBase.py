@@ -37,6 +37,8 @@ class Deck:
             for x in range(decksize):
                 self.deck = [Card(y+1, x) for x in suits for y in range(13)]
 
+    def __len__(self):
+        return len(self.deck)
 
     def __invert__(self):
         shuffle(self.deck)
