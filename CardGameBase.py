@@ -50,12 +50,11 @@ class Deck:
         return repr(str(self.deck))
 
     def __add__(self, o):
-
         if isinstance(o, Card):
-            self.addCard(o)
+            self.add_card(o)
         elif isinstance(o, Deck):
             for card in o.deck:
-                self.addCard(card)
+                self.add_card(card)
         else:
             raise TypeError('You cannot add "{0}" to deck, only Deck or Card'.format(type(o)))
 
@@ -76,10 +75,10 @@ class Deck:
 
     def draw(self):
         if len(self.deck) < 1:
-            raise DeckError('{0}\'s deck is empty!'.format(self.deckname))
+            raise DeckError('Empty deck!')
         return self.deck.pop(0)
 
-    def addCard(self, card):
+    def add_card(self, card):
         if not isinstance(card, Card):
             raise CardError("Must be of type Card, not: {0}".format(type(card)))
         self.deck.append(card)
