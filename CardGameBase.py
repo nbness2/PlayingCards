@@ -17,16 +17,16 @@ suits = ('Hearts', 'Spades', 'Diamonds', 'Clubs')
 class Card:
 
     def __init__(self, value, suit):
-        if value not in ranks:
-            raise ValueError("Value must be from 1 to 13")
+        if not 0 < value <= 13:
+            print('Value must be between 1 and 13', value)
         if str(suit).capitalize() not in suits:
-            raise ValueError("Must use a valid suit of card not: {0}".format(suit))
-
+            print('Invalid suit:', suit)
         self.value = value
-        self.suit = suit
+        self.suit = suit.capitalize()
 
-    def str(self):
-        return '{0} of {1}'.format(ranks[self.value], self.suit.capitalize())
+    def __str__(self):
+        return '{0} of {1}'.format(ranks[self.value-1], self.suit)
+
 
 
 class Deck:
