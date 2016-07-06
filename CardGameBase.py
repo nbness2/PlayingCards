@@ -13,9 +13,6 @@ ranks = {
     9: 'Nine', 10: 'Ten', 11: 'Jack', 12: 'Queen', 13: 'King'
     }
 
-suits = {
-    'Hearts': 0, 'Spades': 1, 'Diamonds': 2, 'Clubs': 3
-    }
 
 class Card:
 
