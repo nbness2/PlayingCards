@@ -35,7 +35,7 @@ class Deck:
         self.deck = []
         if isdeck is True:
             for x in range(decksize):
-                self.deck = [Card(y, x) for x in suits for y in ranks]
+                self.deck = [Card(y+1, x) for x in suits for y in range(13)]
 
 
     def __invert__(self):
