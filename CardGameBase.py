@@ -59,6 +59,21 @@ class Deck:
         else:
             raise TypeError('You cannot add "{0}" to deck, only Deck or Card'.format(type(o)))
 
+    def __getitem__(self, item):
+        return self.deck[item]
+
+    def __iter__(self):
+        self.current = 0
+        self.max = len(self.deck)-1
+        return self
+
+    def __next__(self):
+        if self.current == self.max:
+            raise StopIteration
+        else:
+            self.current += 1
+            return self[self.current-1]
+
     def draw(self):
         if len(self.deck) < 1:
             raise DeckError('{0}\'s deck is empty!'.format(self.deckname))
